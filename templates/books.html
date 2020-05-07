@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block heading%}
+List books!
+{% endblock %}
+
+{% block body %}
+
+<form  action="{{ url_for('listbooks') }}" method="post">
+  <input type="text" name="filter" placeholder="Search book">
+  <button>Search</button> <!--not type="button" bc submit does not work-->
+</form>
+
+<table>
+  <tr>
+    <th>ISBN</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Year</th>
+  </tr>
+  {% for book in books %}
+  <tr>
+    <td><a href="{{ url_for('infobook', book_id = book.id) }}">{{ book.isbn }}</a></td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.year }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock %}

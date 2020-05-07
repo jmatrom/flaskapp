@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask app!</title>
+    <link rel="stylesheet" href="stylekai.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+  </head>
+  <body>
+    <ul class="nav navbar-nav navbar-right">
+      {% if session['logged_in'] == True %}
+        <li><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+      {% else %}
+        <li><a href="/">Login <span class="sr-only">(current)</span></a></li>
+      {% endif %}
+    </ul>
+    <h1>{% block heading%}{% endblock %}</h1>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>

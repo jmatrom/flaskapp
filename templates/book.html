@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block heading%}
+Book details
+{% endblock %}
+
+{% block body %}
+    <!--
+    wirte in py file:
+    import requests
+    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "KEY", "isbns": "9781632168146"})
+    print(res.json())
+   -->
+   <ul>
+      <li>ISBN: {{ book.isbn }}</li>
+      <li>Title: {{ book.title }}</li>
+      <li>Author: {{ book.author }} </li>
+      <li>Year: {{ book.year }}</li>
+  </ul>
+  <ul>
+     <li>ISBN: {{ bookapi["isbn"] }}</li>
+     <li>Ratings: {{ bookapi["ratings_count"] }}</li>
+     <li>Reviews: {{ bookapi["reviews_count"] }} </li>
+     <li>Text review count: {{ bookapi["text_reviews_count"] }}</li>
+  </ul>
+
+{% endblock %}

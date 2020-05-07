@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block heading%}
+Sign in page
+{% endblock %}
+
+{% block body %}
+<form  action="{{ url_for('signin') }}" method="post">
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="surname" placeholder="Surname">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <button>Sign in</button> <!--not type="button" bc submit does not work-->
+</form>
+
+{% endblock %}

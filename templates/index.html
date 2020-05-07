@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading%}
+Index page
+{% endblock %}
+
+{% block body %}
+<form  action="{{ url_for('more') }}" method="post">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <button>Log in</button> <!--not type="button" bc submit does not work-->
+</form>
+
+{% endblock %}
